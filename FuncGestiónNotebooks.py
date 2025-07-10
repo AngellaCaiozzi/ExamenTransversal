@@ -69,7 +69,7 @@ def busqueda_precio():
     encontrado = False
     p_min = validarNum(int,'Ingrese precio (mínimo): $','Precio debe ser mayor a CERO','Precio debe ser un número entero',0)
     p_max = validarNum(int,'Ingrese un precio (máximo): $','Precio debe ser mayor a' +str(p_min),'Precios debe ser un número entero',p_min)
-    for clave, valor in stock.items():
+    for clave, valor in sorted(stock.items(), key=lambda x: productos[x[0]][0].lower()):
         if valor[0] >= p_min and valor[0] <= p_max:
             print(f'Valor Notebook: {productos[clave][0]}--{clave}: ${valor[0]}')
             encontrado = True
